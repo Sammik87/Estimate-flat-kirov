@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>
+            CatBoostRegressor
+        </title> 
+    </head>
+
+    <body bgcolor=#d4d4d4>
+
+        <center>
+
+        <h1> Оценка стоимости квартир в городе Киров </h1><br>
+        
+        <form method="POST", action="{{url_for('predict')}}">
+           <b> Общая площадь : <input type="number", name="so", placeholder="enter", min="10", max="350", step="any"> <br><br>
+            Площадь кухни : <input type="number", name='sk', placeholder="enter", min="2", max="70", step="any"> <br><br>
+            Жилая площадь : <input type="number", name='sj', placeholder="enter", min="4", max="100", step="any"> <br><br>
+            Этажей в доме : <input type="number", name='floor_all', placeholder="enter", min="1", max="30", step=1> <br><br>
+            Год постройки : <input type="number", name='age', placeholder="enter", min="1800", max="2023", step=1> <br><br>
+            Долгота : <input type="number", name='longitude', placeholder="enter", min="49", max="50", step="any"> <br><br>
+            Широта : <input type="number", name='latitude', placeholder="enter", min="58", max="59", step="any"> <br><br></b>
+            
+            <b><label>Тип санузла :</label></b>
+            <select name='bathroom'>
+                <option> совмещенный </option>
+                <option> раздельный </option>
+            </select><br><br>
+            <b><label>Количество комнат :</label></b>
+            <select name='room_size'>
+                <option> студия </option>
+                <option> 1к </option>
+                <option> 2к </option>
+                <option> 3к </option>
+                <option> 4к и более </option>
+            </select><br><br>
+            <b><label>Этаж :</label></b>
+            <select name='floor'>
+                <option> средний </option>
+                <option> первый </option>
+                <option> последний </option>
+            </select><br><br>
+            <b><label>Материал стен :</label></b>
+            <select name='wall_material'>
+                <option> панельный </option>
+                <option> монолитный </option>
+                <option> кирпичный </option>
+                <option> деревянный </option>
+            </select><br><br>
+            <b><label>Уровень отделки :</label></b>
+            <select name='finishing_level'>
+                <option> дизайнерский </option>
+                <option> евроремонт </option>
+                <option> стандартный </option>
+                <option> требует ремонта </option>
+            </select><br><br><br>
+
+            <input type="submit" , value='ПРЕДСКАЗАТЬ'>
+        </form>
+
+        <p>
+            СТОИМОСТЬ КВАРТИРЫ {{ pred }}
+        </p>
+
+        <img src='static\киров.jpg' alt="city">
+        
+    </center>
+
+    </body>
+</html>
